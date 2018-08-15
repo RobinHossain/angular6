@@ -1,20 +1,160 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+
+
+  <div class="container wrapper_runner">
+
+    <div fxLayout="row" fxFlex="10" fxLayoutAlign="center center">
+      <div class="item item-1"><mat-icon>chevron_left</mat-icon></div>
+    </div>
+
+    <div fxLayout="column" fxFlex="80" fxLayoutAlign="center center" class="standing_area">
+      <h2 class="title_t1">Standing 30 Meters</h2>
+      <hr class="hr_main_title">
+      <div class="participant title">Participants<span class="counter_participant">1</span></div>
+    </div>
+
+    <div fxLayout="row" fxFlex="10" fxLayoutAlign="center center">
+      <button mat-button class="orange_bg"> + ADD</button>
+    </div>
+
+  </div>
+
+  <div class="container wrapper_runner">
+    <div fxLayout="row" fxFlex="80" fxFlexOffset="10" fxLayoutAlign="center center" class="user_list">
+      <div fxLayout="row" fxFlex="50" fxLayoutAlign="start center">
+        <div class="user_icon" style="background-image:url(../assets/images/icons8-user-50.png)"></div>
+        <div class="user_info">
+          <span class="user_name">Anders Andersson</span>
+          <span class="user_perform ">178cm - 85kg</span>
+        </div>
+      </div>
+      <div fxLayout="row" fxFlex="50" class="user_action" fxLayoutAlign="end center">
+        <div class="edit_btn"><mat-icon>edit</mat-icon></div>
+        <div class="select_radio"> Select <mat-radio-button value="1"></mat-radio-button></div>
+      </div>
+    </div>
+  </div>
+
+<div class="container wrapper_runner">
+  <div fxLayout="row" fxFlex="100" fxLayoutAlign="center center">
+    <button mat-button class="white_bg">START TEST</button>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+
+
+
+
+
+  <div class="container wrapper_runner">
+
+    <div fxLayout="row" fxFlex="10" fxLayoutAlign="center center">
+      <div class="item item-1"><mat-icon>chevron_left</mat-icon></div>
+    </div>
+
+    <div fxLayout="column" fxFlex="80" fxLayoutAlign="center center" class="standing_area">
+      <h2 class="title_t1">RUN A TEST</h2>
+      <hr class="hr_main_title">
+      <div class="participant title">Which test would you like to ?</div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <mat-card class="container wrapper_runner">
+    <mat-card-content class="large">
+      <div fxFlexFill fxFlex="80" fxFlexOffset="10">
+        <div fxFlexFill fxLayout="row wrap" fxFill fxLayoutGap="2px grid" style="cursor: pointer;">
+          <div fxFlex="33" *ngFor="let test of tests" [ngClass]="['test_thumb', test.active ? 'active' : 'inActive']">
+            <div class="one" fxFlexFill fxLayoutAlign="center center" [ngStyle]="{'background-image':'url('+test.img+')'}" [ngClass]="['thumb']">
+              <span class="thumb_title">{{test.title}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+
+  <div class="container wrapper_runner">
+
+    <div fxLayout="row" fxFlex="10" fxLayoutAlign="center center">
+      <div class="item item-1"><mat-icon>chevron_left</mat-icon></div>
+    </div>
+
+    <div fxLayout="column" fxFlex="80" fxLayoutAlign="center center" class="standing_area">
+      <h2 class="title_t1">Standing 30 meters</h2>
+      <hr class="hr_main_title">
+      <div class="participant title">Recording 1/2</div>
+    </div>
+
+  </div>
+
+
+  <div class="container black_area">
+    <div fxFlexFill fxFlex="80" fxFlexOffset="10">
+      <div fxLayout="column" fxFlex="50" fxLayoutAlign="start start center">
+
+        <div fxFlex class="user_info">
+          <div class="user_icon" style="background-image:url(../assets/images/icons8-user-50.png)"></div>
+          <span class="user_name">Anders Andersson</span>
+        </div>
+        <div fxFlex class="timing_desc">
+          <div class="span lap_info">
+            Lap 1
+          </div>
+          <div class="time_count">
+            <div class="time">
+              6:51
+            </div>
+            <div class="time_str">
+              sec
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div fxLayout="row" fxFlex="50" class="direction" fxLayoutAlign="end center">
+
+        <div fxLayout="column" fxFlex="80" fxFlexOffset="10" fxLayoutAlign="start center">
+          <div class="direction">
+            <div class="dot"> &#x0002E;</div>
+            <div class="dot_bar">&#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F; &#x0005F;</div>
+            <div class="right_arrow"> &#x0003E; </div>
+            <div class="right_border"></div>
+          </div>
+          <div class="direction_borders" fxLayoutAlign="start start">
+            <div class="direction_from">A</div>
+            <div class="direction_to">B</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container white_area small">
+    <div fxLayout="column" fxFlex="80" fxFlexOffset="10" fxLayoutAlign="center center">
+      <span class="next_up">Next Up</span>
+    </div>
+  </div>
+  <div class="container white_area">
+    <div fxLayout="row" fxFlex="80" fxFlexOffset="10" fxLayoutAlign="start center" class="user_list">
+      <div fxLayout="row" fxFlex="50" fxLayoutAlign="start center">
+        <div class="user_icon" style="background-image:url(../assets/images/icons8-user-50.png)"></div>
+        <div class="user_info">
+          <span class="user_name">Johan Holmlund</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container gray_area">
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="center center">
+      <button mat-button class="orange_bg large">PAUSE</button>
+    </div>
+  </div>
 
