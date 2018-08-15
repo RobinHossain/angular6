@@ -2,29 +2,29 @@
 
   <div class="container wrapper_runner">
 
-    <div fxLayout="row" fxFlex="10" fxLayoutAlign="center center">
+    <div fxLayout="row" fxFlex="15" fxLayoutAlign="center center">
       <div class="item item-1"><mat-icon>chevron_left</mat-icon></div>
     </div>
 
-    <div fxLayout="column" fxFlex="80" fxLayoutAlign="center center" class="standing_area">
+    <div fxLayout="column" fxFlex="70" fxLayoutAlign="center center" class="standing_area">
       <h2 class="title_t1">Standing 30 Meters</h2>
       <hr class="hr_main_title">
       <div class="participant title">Participants<span class="counter_participant">1</span></div>
     </div>
 
-    <div fxLayout="row" fxFlex="10" fxLayoutAlign="center center">
-      <button mat-button class="orange_bg"> + ADD</button>
+    <div fxLayout="row" fxFlex="15" fxLayoutAlign="center center">
+      <button mat-button class="orange_bg"> + <span fxShow [fxHide.xs]="true" (click)="addParticipant()">ADD</span></button>
     </div>
 
   </div>
 
   <div class="container wrapper_runner">
-    <div fxLayout="row" fxFlex="80" fxFlexOffset="10" fxLayoutAlign="center center" class="user_list">
+    <div fxLayout="row" fxFlex="80" fxFlexOffset="10" fxLayoutAlign="center center" class="user_list" *ngFor="let participant of participants">
       <div fxLayout="row" fxFlex="50" fxLayoutAlign="start center">
-        <div class="user_icon" style="background-image:url(../assets/images/icons8-user-50.png)"></div>
+        <div class="user_icon" [ngStyle]="{'background-image':'url('+participant.img+')'}"></div>
         <div class="user_info">
-          <span class="user_name">Anders Andersson</span>
-          <span class="user_perform ">178cm - 85kg</span>
+          <span class="user_name">{{participant.name}}</span>
+          <span class="user_perform ">{{participant.desc}}</span>
         </div>
       </div>
       <div fxLayout="row" fxFlex="50" class="user_action" fxLayoutAlign="end center">
@@ -94,7 +94,7 @@
 
 
   <div class="container black_area">
-    <div fxFlexFill fxFlex="80" fxFlexOffset="10">
+    <div fxFlexFill fxFlex="80" fxLayout.xs="column" fxFlexOffset="10">
       <div fxLayout="column" fxFlex="50" fxLayoutAlign="start start center">
 
         <div fxFlex class="user_info">

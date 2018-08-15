@@ -1,12 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+
 export class AppComponent {
   title = 'app';
+
+  constructor(private dialog: MatDialog) {}
+
+  initName: string;
+  initDesc: string;
+  initImg: '../assets/images/icons8-user-50.png';
+
+  /* ../assets/images/icons8-user-50.png */
+  participants = [
+    {
+      id: 1,
+      name: 'Anders Andersson',
+      desc: '178cm - 85kg',
+      img: '../assets/images/running_active.jpg'
+    }
+  ];
 
   tests = [
     {
@@ -64,4 +83,51 @@ export class AppComponent {
       active: false
     },
   ];
+
+  addParticipant() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.position = {
+      'top': '0',
+      left: '0'
+    };
+
+    dialogConfig.data = {
+      id: 1,
+      title: 'Angular For Beginners'
+    };
+
+    this.dialog.open(CourseDialogComponent, dialogConfig);
+  }
+
+}
+
+
+
+@Component({
+  selector: 'course-dialog',
+  templateUrl: './add-participant-dialog.html'
+})
+
+export class CourseDialogComponent {
+
+  description:string;
+
+  constructor(
+    private dialogRef: MatDialogRef<CourseDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) data) {
+
+    this.description = data.description;
+  }
+
+  save() {
+    this.dialogRef.close();
+  }
+
+  close() {
+    this.dialogRef.close();
+  }
 }
